@@ -39,23 +39,6 @@ module.exports = {
 					options: {
 					  ident: 'postcss',
 					  plugins: [
-					  			require('autoprefixer')({broswer: ['Android >= 4.0','iOS 7']}),
-								pxtorem({
-								  rootValue: 75,
-								  propWhiteList: [],
-								})
-					  ]
-					}
-				}, 'sass-loader']
-			},
-			{
-				test: /\.less/,
-				use: ['style-loader','css-loader',
-				{
-					loader: 'postcss-loader',
-					options: {
-					  ident: 'postcss',
-					  plugins: [
 					  			require('autoprefixer'),
 								pxtorem({
 								  rootValue: 75,
@@ -64,6 +47,7 @@ module.exports = {
 					  ]
 					}
 				}, 'sass-loader']
+
 			},
 			{//对js和jsx文件使用babel转换语法
 				test: /\.js$/,

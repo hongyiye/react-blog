@@ -2,6 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');//自动生成html文件�
 
 const path = require('path');
 const webpack = require('webpack');
+const pxtorem = require('postcss-pxtorem');
 
 module.exports = {
 	entry: {
@@ -28,11 +29,22 @@ module.exports = {
 		rules: [
 			{//module模块加载规则，如果以.css结尾的文件则用下面这两个插件去加载
 				test: /\.css$/,
-				use: ['style-loader','css-loader?sourceMap']
+				use: ['style-loader','css-loader']
 			},
 			{
 				test: /\.scss/,
-				use: ['style-loader','css-loader?sourceMap', 'sass-loader?sourceMap']
+				use: ['style-loader','css-loader',
+				{
+					loader: 'postcss-loader',
+					options: {
+					  plugins: [require('autoprefixer'),
+								pxtorem({
+								  rootValue: 75,
+								  propWhiteList: [],
+								})
+					  ]
+					}
+				}, 'sass-loader']
 
 			},
 			{//对js和jsx文件使用babel转换语法
@@ -63,7 +75,7 @@ module.exports = {
 	},
 	devtool: 'inline-source-map',//热加载模式
     devServer: {
-        contentBase: './',
+        contentBase: './src',
         inline: true,
         port: 9000,
         open: false

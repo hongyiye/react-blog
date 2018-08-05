@@ -26,7 +26,7 @@ module.exports = {
             to: __dirname + '/dist/static/img'
         }]),
 		new HtmlWebpackPlugin({
-		template: './src/index-build.html',//以这个文件为模板，生成html文件,这个文件里会导入上面输出的js文件
+		template: './src/index.html',//以这个文件为模板，生成html文件,这个文件里会导入上面输出的js文件
 		filename: 'index.html',
 		minify: {
 			collapseWhitespace: false//文件最小化，去掉html文件里的空格
@@ -66,7 +66,7 @@ module.exports = {
 						options: {
 						  ident: 'postcss',
 						  plugins: [
-							  require('autoprefixer'),
+							  require('autoprefixer')({broswer: ['Android >= 4.0','iOS 7']}),
 									pxtorem({
 									  rootValue: 75,
 									  propWhiteList: [],
@@ -127,3 +127,18 @@ module.exports = {
 		]
 	}
 }
+
+// {
+// 	test: /\.(jpe?g|png|gif|svg)$/i,
+// 	use: [
+// 		{
+// 			loader: 'file-loader',
+// 			options: {
+// 				name: '[name].[ext]',
+// 				outputPath: './static/'
+// 			}
+// 		}
+// 	]
+// },
+// { test: /\.woff2?$/, loader: 'url-loader?limit=10000&name=[name].[ext]&outputPath=fonts/' },
+// { test: /\.(ttf|eot)$/, loader: 'file-loader?name=[name].[ext]&outputPath=fonts/' },
