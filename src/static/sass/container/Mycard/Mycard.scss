@@ -1,0 +1,195 @@
+.Mycard{
+    height: 100%;
+    .menu-icon-wrap{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 75px;
+        right: 65px;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        background-color: rgba(0,0,0,.4);
+        .menu-icon{
+            width: 45px;
+            height: 45px;
+            fill: #fff;
+        }
+    }
+    .section-wrap{
+        height: 100%;
+        overflow: auto;
+        .section{
+        }
+        .section1{
+            position: relative;
+            height: 100%;
+            &::before{
+                content: '';
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                background-image: url('../img/mycard-bg.jpg');
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                background-color: rgba(0,0,0,.5);
+            }
+            .my-card{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 40%;
+                transform: translateY(-50%);
+                color: #fff;
+                .name{
+                    font-size: 60px;
+                    text-align: center;
+                    font-weight: normal;
+                }
+                .brief{
+                    font-size: 30px;
+                    text-align: center;
+                    letter-spacing: 10px;
+                }
+                .enter-blog{
+                    height: 80px;
+                    width: 200px;
+                    line-height: 80px;
+                    margin: 100px auto 0;
+                    padding: 0 20px;
+                    font-size: 28px;
+                    text-align: center;
+                    color: #fff;
+                    border-radius: 4px;
+                    background-color: #1E9FFF;
+                }
+            }
+            .section-next{
+                position: absolute;
+                bottom: 5vh;
+                left: 50%;
+                width: 6vh;
+                height: 6vh;
+                transform: translateX(-50%);
+                .next-icon{
+                    width: 6vh;
+                    height: 6vh;
+                    fill: #fff;
+                }
+            }
+        }
+        .section2{
+            padding: 200px 60px 0;
+            background-color: #fff;
+            .title-wrap{
+                height: 150px;
+                position: relative;
+                .title{
+                    text-align: center;
+                    font-size: 60px;
+                    color: #000;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 100px;
+                    height: 4px;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #00c2ff;
+                }
+            }
+            .title-tip{
+                margin-top: 40px;
+                font-size: 30px;
+                line-height: 44px;
+                text-align: center;
+                color: #888;
+            }
+            .article-list{
+                .article-item{
+                    margin-top: 100px;
+                    .article-head{
+                        .article-img{
+                            width: 100%;
+                            vertical-align: bottom;
+                        }
+                    }
+                    .article-content{
+                        padding: 60px 30px 40px;
+                        background-color: #faf9f9;
+                        .article-title{
+                            margin-bottom: 20px;
+                            font-size: 25px;
+                            color: #333;
+                        }
+                        .article-date{
+                            margin-bottom: 30px;
+                            font-size: 20px;
+                            color: #bbb;
+                        }
+                        .article-brief{
+                            margin-bottom: 20px;
+                            font-size: 25px;
+                            color: #999;
+                        }
+                        .article-more{
+                            padding-top: 30px;
+                            font-size: 25px;
+                            color: #29b6f6;
+                        }
+                    }
+                }
+            }
+        }
+        .section3{
+            position: relative;
+            z-index: 0;
+            padding: 200px 0;
+            background-image: url('../img/mycard-about-bg.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                background-color: rgba(0,0,0,.5);
+            }
+            .about-wrap{
+                .about-item{
+                    width: 400px;
+                    height: 90px;
+                    line-height: 90px;
+                    font-size: 24px;
+                    text-align: center;
+                    margin: 20px auto;
+                    border: 1px solid #b4b4b4;
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+}

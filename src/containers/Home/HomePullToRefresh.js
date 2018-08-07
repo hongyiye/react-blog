@@ -21,14 +21,17 @@ class HomePullToRefresh extends React.Component{
             data: [],
         }
     }
-    componentDidMount() {
+    componentDidMount() {//componentDidMount在这里可以进行需要DOM操作的初始化
         // const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
         const hei = this.state.height;
         setTimeout(() => this.setState({
           height: hei,
           data: genData(),
         }), 0);
-    }    
+    } 
+    gotoArticle(){
+        this.props.history.push('/Article');
+    }   
     render(){
         return(
             <PullToRefresh
@@ -50,7 +53,7 @@ class HomePullToRefresh extends React.Component{
             >
                 <HomeCarousel></HomeCarousel>
                 {this.state.data.map(i => (
-                    <div  key={i} className="blog-item">
+                    <div  key={i} className="blog-item" onClick={() => this.gotoArticle()}>
                         <div className="blog-title">别让这些闹心的套路，毁了你的网页设计!</div>
                         <div className="blog-pics">
                             <img className="pic-item" src="./static/img/toppic01.jpg"/>
