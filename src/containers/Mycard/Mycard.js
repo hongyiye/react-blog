@@ -1,12 +1,36 @@
 import React from 'react';
+import { Menu } from '../../components/index';
+import { connect } from 'react-redux';
 
 class Mycard extends React.Component{
     constructor(props){
         super(props);
+        this.name = 'Mycard';
         this.state = {
             name: 'Mycard'
         }
     }
+
+    componentWillMount(){
+		console.log('调用组件挂载前的生命周期函数componentWillMount:' + this.name);
+		console.log(this);
+	}
+	componentDidMount(){
+		console.log('调用组件挂载前的生命周期函数componentDidMount:' + this.name);
+	}
+
+	componentWillUpdate(){
+		console.log('调用组件挂载前的生命周期函数componentWillUpdate:' + this.name);
+	}
+	componentDidUpdate(){
+		console.log('调用组件挂载前的生命周期函数componentDidUpdate:' + this.name);
+	}
+	componentWillReceiveProps(){
+		console.log('调用组件挂载前的生命周期函数componentWillReceiveProps:' + this.name);
+	}
+	componentWillUnmount(){
+		console.log('调用组件挂载前的生命周期函数componentWillUnmount:' + this.name);
+	}
 
     gotoBlog(){//跳转到博客主页
         this.props.history.push('/Home');
@@ -15,14 +39,20 @@ class Mycard extends React.Component{
         this.props.history.push('/Article');
     }
 
+    menuIconClick(){
+        this.props.onMenuOpenCHange(!this.props.menuOpen);
+        console.log('this.props.menuOpen:' + this.props.menuOpen);
+    }
+
     render(){
         return(
             <div className="Mycard">
-                <div className="menu-icon-wrap">
+                <a className="menu-icon-wrap" onClick={() => this.menuIconClick()}>
                     <svg className="menu-icon">
                         <use xlinkHref="#icon-menu"></use>
                     </svg>
-                </div>
+                </a>
+                <Menu></Menu>
                 <div className="section-wrap">
                     <div className="section section1">
                         <div className="my-card">
@@ -92,5 +122,21 @@ class Mycard extends React.Component{
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        menuOpen: state.menuOpen
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onMenuOpenCHange: (menuOpen) => {
+            dispatch({type: 'MENU_OPEN_CHANGE',menuOpen: menuOpen});
+        }
+    }
+}
+
+Mycard = connect(mapStateToProps,mapDispatchToProps)(Mycard);
 
 export default Mycard;

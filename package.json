@@ -5,11 +5,15 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.2.2",
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "qs": "^6.5.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development --config webpack.dev.js --host 0.0.0.0",

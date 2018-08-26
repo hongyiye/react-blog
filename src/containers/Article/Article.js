@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Head } from '../../components/index';
+import { Head, Comment } from '../../components/index';
 
 class Article extends React.Component{
     constructor(props){
@@ -60,6 +60,8 @@ class Article extends React.Component{
                             <img alt="" src="http://www.yangqq.com/d/file/news/life/2018-03-13/89a5cb1d573b094ae3cc8afd7c11fffb.jpg"/>
                         </div>
                     </div>
+                    {/*评论列表*/}
+                    <Comment></Comment>
                 </div>
             </div>
         );
